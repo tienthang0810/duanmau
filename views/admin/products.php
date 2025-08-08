@@ -8,7 +8,7 @@ require_once './views/admin/layout/header.php';
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="h3"><i class="fas fa-box me-2"></i>Quản lý sản phẩm</h2>
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>?act=admin">Admin</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>?act=admin-product">Admin</a></li>
             <li class="breadcrumb-item active">Sản phẩm</li>
         </ol>
     </div>
@@ -73,9 +73,6 @@ require_once './views/admin/layout/header.php';
                                     <td><?php echo date('d/m/Y', strtotime($product['created_at'])); ?></td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="<?php echo BASE_URL; ?>?act=product-detail&id=<?php echo $product['id']; ?>" class="btn btn-sm btn-info" data-bs-toggle="tooltip" title="Xem" target="_blank">
-                                                <i class="fas fa-eye"></i>
-                                            </a>
                                             <a href="<?php echo BASE_URL; ?>?act=admin-product&action=edit&id=<?php echo $product['id']; ?>" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" title="Sửa" onclick="console.log('Edit product ID: <?php echo $product["id"]; ?>')">
                                                 <i class="fas fa-edit"></i>
                                             </a>

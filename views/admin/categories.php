@@ -25,7 +25,7 @@ require_once './views/admin/layout/header.php';
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="h3"><i class="fas fa-tags me-2"></i>Quản lý danh mục</h2>
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>?act=admin">Admin</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>?act=admin-product">Admin</a></li>
             <li class="breadcrumb-item active">Danh mục</li>
         </ol>
     </div>
@@ -90,7 +90,6 @@ require_once './views/admin/layout/header.php';
                                     <th scope="col">ID</th>
                                     <th scope="col">Tên danh mục</th>
                                     <th scope="col">Mô tả</th>
-                                    <th scope="col">Số sản phẩm</th>
                                     <th scope="col">Thao tác</th>
                                 </tr>
                             </thead>
@@ -101,9 +100,6 @@ require_once './views/admin/layout/header.php';
                                             <td><?php echo $cat['id']; ?></td>
                                             <td><?php echo $cat['name']; ?></td>
                                             <td><?php echo !empty($cat['description']) ? $cat['description'] : 'Không có mô tả'; ?></td>
-                                            <td>
-                                                <span class="badge bg-primary"><?php echo $cat['product_count']; ?></span>
-                                            </td>
                                             <td>
                                                 <div class="btn-group" role="group">
                                                     <a href="<?php echo BASE_URL; ?>?act=admin-categories&action=edit&id=<?php echo $cat['id']; ?>" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" title="Sửa" onclick="console.log('Edit category ID: <?php echo $cat["id"]; ?>')">

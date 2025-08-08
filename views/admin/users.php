@@ -8,7 +8,7 @@ require_once './views/admin/layout/header.php';
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="h3"><i class="fas fa-users me-2"></i>Quản lý người dùng</h2>
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>?act=admin">Admin</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>?act=admin-product">Admin</a></li>
             <li class="breadcrumb-item active">Người dùng</li>
         </ol>
     </div>
@@ -167,17 +167,7 @@ require_once './views/admin/layout/header.php';
                         <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
-                    
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Số điện thoại</label>
-                        <input type="text" class="form-control" id="phone" name="phone">
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Địa chỉ</label>
-                        <textarea class="form-control" id="address" name="address" rows="2"></textarea>
-                    </div>
-                    
+                                 
                     <div class="mb-3">
                         <label for="role" class="form-label">Vai trò</label>
                         <select class="form-select" id="role" name="role">
