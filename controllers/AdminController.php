@@ -30,7 +30,7 @@ class AdminController {
             exit;
         }
     }
-    
+
     /**
      * Quản lý sản phẩm
      */
@@ -90,7 +90,7 @@ class AdminController {
                                     // Reset form
                                     $_POST = [];
                                     // Chuyển hướng về trang danh sách sản phẩm với thông báo thành công
-                                    header("Location: " . BASE_URL . "?act=admin-product&added=1");
+                                    header("Location: " . BASE_URL . "?act=admin-product");
                                     exit;
                                 } else {
                                     $error = "Có lỗi xảy ra khi thêm sản phẩm";
@@ -163,13 +163,13 @@ class AdminController {
                             }
                             
                             // Cập nhật sản phẩm nếu không có lỗi
-                            if (empty($error)) {
+                             if (empty($error)) {
                                 if ($this->productModel->updateProduct($id, $name, $category_id, $price, $description, $image, $featured)) {
                                     $success = "Cập nhật sản phẩm thành công";
                                     // Lấy lại thông tin sản phẩm sau khi cập nhật
                                     $product = $this->productModel->getProductById($id);
                                     // Chuyển hướng về trang danh sách sản phẩm với thông báo thành công
-                                    header("Location: " . BASE_URL . "?act=admin-product&updated=1");
+                                    header("Location: " . BASE_URL . "?act=admin-product");
                                     exit;
                                 } else {
                                     $error = "Có lỗi xảy ra khi cập nhật sản phẩm";
@@ -199,7 +199,7 @@ class AdminController {
                             // Xóa sản phẩm
                             if ($this->productModel->deleteProduct($id)) {
                                 // Chuyển hướng về trang danh sách sản phẩm với thông báo thành công
-                                header("Location: " . BASE_URL . "?act=admin-product&deleted=1");
+                                header("Location: " . BASE_URL . "?act=admin-product");
                                 exit;
                             } else {
                                 $error = "Có lỗi xảy ra khi xóa sản phẩm";
@@ -239,7 +239,7 @@ class AdminController {
      * Quản lý người dùng
      */
     public function Users() {
-        $page_title = "Quản lý người dùngử";
+        $page_title = "Quản lý người dùng - Shop Điện Tử";
         
         // Lấy danh sách người dùng
         $users = $this->userModel->getAllUsers();

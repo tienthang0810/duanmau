@@ -73,7 +73,7 @@ require_once './views/admin/layout/header.php';
                                                 <i class="fas fa-edit"></i>
                                             </button>
                                             <?php if ($user['id'] != $_SESSION['user_id']): ?> <!-- Không cho phép xóa chính mình -->
-                                                <a href="<?php echo BASE_URL; ?>?act=admin&section=users&action=delete&id=<?php echo $user['id']; ?>" class="btn btn-sm btn-danger" data-bs-toggle="tooltip" title="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này?')">
+                                                <a href="<?php echo BASE_URL; ?>?act=admin-users&action=delete&id=<?php echo $user['id']; ?>" class="btn btn-sm btn-danger" data-bs-toggle="tooltip" title="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này?')">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             <?php endif; ?>
@@ -88,7 +88,7 @@ require_once './views/admin/layout/header.php';
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="<?php echo BASE_URL; ?>?act=admin&section=users&action=edit" method="post">
+                                                        <form action="<?php echo BASE_URL; ?>?act=admin-users&action=edit" method="post">
                                                             <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
                                                             
                                                             <div class="mb-3">
@@ -152,7 +152,7 @@ require_once './views/admin/layout/header.php';
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo BASE_URL; ?>?act=admin&section=users&action=add" method="post">
+                <form action="<?php echo BASE_URL; ?>?act=admin-users-add" method="POST">
                     <div class="mb-3">
                         <label for="username" class="form-label">Tên đăng nhập <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="username" name="username" required>

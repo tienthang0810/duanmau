@@ -37,25 +37,7 @@
     
     <!-- Custom Scripts -->
     <script>
-        // Xử lý hiển thị/ẩn danh mục sản phẩm
-        document.addEventListener('DOMContentLoaded', function() {
-            // Xử lý nút xem tất cả danh mục
-            const toggleButton = document.getElementById('toggleCategories');
-            if (toggleButton) {
-                toggleButton.addEventListener('click', function() {
-                    const remainingCategories = document.querySelector('.remaining-categories');
-                    if (remainingCategories) {
-                        if (remainingCategories.style.display === 'none') {
-                            remainingCategories.style.display = 'flex';
-                            toggleButton.textContent = 'Ẩn bớt';
-                        } else {
-                            remainingCategories.style.display = 'none';
-                            toggleButton.textContent = 'Xem tất cả danh mục';
-                        }
-                    }
-                });
-            }
-            
+        document.addEventListener('DOMContentLoaded', function() { 
             // Làm cho toàn bộ card sản phẩm có thể nhấp vào
             const productCards = document.querySelectorAll('.product-item .card');
             productCards.forEach(card => {

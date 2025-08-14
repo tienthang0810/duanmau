@@ -219,7 +219,7 @@ class UserController {
             }
             
             // Chuyển hướng về trang quản lý người dùng
-            header('Location: ' . BASE_URL . '?act=admin&section=users');
+            header('Location: ' . BASE_URL . '?act=admin-users');
             exit;
         }
     }
@@ -273,7 +273,7 @@ class UserController {
             }
             
             // Chuyển hướng về trang quản lý người dùng
-            header('Location: ' . BASE_URL . '?act=admin&section=users');
+            header('Location: ' . BASE_URL . '?act=admin-users');
             exit;
         }
     }
@@ -297,7 +297,7 @@ class UserController {
             }
             
             // Chuyển hướng về trang quản lý người dùng
-            header('Location: ' . BASE_URL . '?act=admin&section=users');
+            header('Location: ' . BASE_URL . '?act=admin-users');
             exit;
         }
     }

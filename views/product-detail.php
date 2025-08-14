@@ -67,7 +67,7 @@ require_once './views/layout/header.php';
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between">
                                 <span>Danh mục:</span>
-                                <span><?php echo isset($category) ? $category['name'] : 'Chưa xắp xếp'; ?></span>
+                                <span><?php echo isset($category) ? $category['name'] : 'NULL'; ?></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between">
                                 <span>Thương hiệu:</span>

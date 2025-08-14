@@ -66,7 +66,7 @@ class UserModel {
             // Thêm người dùng mới
             $stmt = $this->conn->prepare(
                 "INSERT INTO users (username, password, email, fullname, role) 
-                 VALUES (:username, :password, :email, :fullname, :phone, 'user')"
+                 VALUES (:username, :password, :email, :fullname, 'user')"
             );
             
             $stmt->bindParam(':username', $username);
