@@ -50,11 +50,24 @@ class CategoryModel
     // Thêm danh mục mới
     public function addCategory($category_name, $description = null)
     {
-        $sql = "INSERT INTO categories (name, description) VALUES (:category_name, :description)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':category_name', $category_name);
-        $stmt->bindParam(':description', $description);
-        return $stmt->execute();
+        try {
+            $sql = "INSERT INTO categories (name, description) VALUES (:category_name, :description)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':category_name', $category_name);
+            $stmt->bindParam(':description', $description);
+            $result = $stmt->execute();
+            
+            if (!$result) {
+                error_log('SQL Error: ' . implode(', ', $stmt->errorInfo()));
+            } else {
+                error_log('Category added successfully with ID: ' . $this->conn->lastInsertId());
+            }
+            
+            return $result;
+        } catch (PDOException $e) {
+            error_log('Database error: ' . $e->getMessage());
+            return false;
+        }
     }
     
     // Cập nhật danh mục

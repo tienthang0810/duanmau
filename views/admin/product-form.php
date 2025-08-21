@@ -2,11 +2,9 @@
 require_once './views/admin/layout/header.php';
 
 // Xác định chế độ
-$is_edit_mode = !empty($product) && isset($product['id']);
-
-// Tiêu đề & action form
+$is_edit_mode = isset($product) && !empty($product);
 $form_title = $is_edit_mode ? 'Sửa sản phẩm' : 'Thêm sản phẩm mới';
-$form_action = BASE_URL . '?act=admin-product&action=' . ($is_edit_mode ? 'edit&id=' . (int)$product['id'] : 'add');
+$form_action = $is_edit_mode ? BASE_URL . '?act=admin-product&action=edit&id=' . $product['id'] : BASE_URL . '?act=admin-product&action=add';
 ?>
 
 <div class="container-fluid">

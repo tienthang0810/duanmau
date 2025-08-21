@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 -- Thêm dữ liệu mẫu cho bảng categories
 INSERT INTO `categories` (`id`, `name`, `description`) VALUES
-(1, 'Áo nữ', 'Các loại áo dành cho nam'),
-(2, 'Áo nam', 'Các loại áo dành cho nữ'),
+(1, 'Áo nữ', 'Các loại áo dành cho nữ'),
+(2, 'Áo nam', 'Các loại áo dành cho nam');
 
 
 -- Thêm dữ liệu mẫu cho bảng products

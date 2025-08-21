@@ -152,7 +152,7 @@ require_once './views/admin/layout/header.php';
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo BASE_URL; ?>?act=admin-users-add" method="POST">
+                <form action="<?php echo BASE_URL; ?>?act=admin-users&action=add" method="POST">
                     <div class="mb-3">
                         <label for="username" class="form-label">Tên đăng nhập <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="username" name="username" required>

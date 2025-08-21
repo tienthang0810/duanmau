@@ -163,7 +163,7 @@ class AdminController {
                             }
                             
                             // Cập nhật sản phẩm nếu không có lỗi
-                             if (empty($error)) {
+                            if (empty($error)) {
                                 if ($this->productModel->updateProduct($id, $name, $category_id, $price, $description, $image, $featured)) {
                                     $success = "Cập nhật sản phẩm thành công";
                                     // Lấy lại thông tin sản phẩm sau khi cập nhật

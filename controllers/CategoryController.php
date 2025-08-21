@@ -43,9 +43,9 @@ class CategoryController
                         } else {
                             // Cập nhật danh mục
                             if ($this->categoryModel->updateCategory($id, $category_name, $description)) {
-                                $success = "Cập nhật danh mục thành công";
-                                // Lấy lại thông tin danh mục sau khi cập nhật
-                                $category = $this->categoryModel->getCategoryById($id);
+                                // Chuyển hướng về trang danh sách danh mục với thông báo thành công
+                                header("Location: " . BASE_URL . "?act=admin-categories&updated=1");
+                                exit;
                             } else {
                                 $error = "Có lỗi xảy ra khi cập nhật danh mục";
                             }
@@ -67,7 +67,7 @@ class CategoryController
                             // Xóa danh mục
                             if ($this->categoryModel->deleteCategory($id)) {
                                 // Chuyển hướng về trang danh sách danh mục với thông báo thành công
-                                header("Location: " . BASE_URL . "?act=categories&deleted=1");
+                                header("Location: " . BASE_URL . "?act=admin-categories");
                                 exit;
                             } else {
                                 $error = "Có lỗi xảy ra khi xóa danh mục";
@@ -79,7 +79,10 @@ class CategoryController
         }
         
         // Xử lý thêm danh mục mới
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['id'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST['id'])) {
+            // Debug để xem dữ liệu POST
+            error_log('POST data: ' . print_r($_POST, true));
+            
             $category_name = trim($_POST['category_name']);
             $description = trim($_POST['description']);
             
@@ -88,19 +91,29 @@ class CategoryController
                 $error = "Vui lòng nhập tên danh mục";
             } else {
                 // Thêm danh mục mới
-                if ($this->categoryModel->addCategory($category_name, $description)) {
+                $result = $this->categoryModel->addCategory($category_name, $description);
+                error_log('Add category result: ' . var_export($result, true));
+                
+                if ($result) {
                     $success = "Thêm danh mục thành công";
                     // Reset form
                     $_POST = [];
+                    // Chuyển hướng để tránh gửi lại form khi refresh
+                    header("Location: " . BASE_URL . "?act=admin-categories&added=1");
+                    exit;
                 } else {
                     $error = "Có lỗi xảy ra khi thêm danh mục";
                 }
             }
         }
         
-        // Hiển thị thông báo xóa thành công
+        // Hiển thị thông báo thành công
         if (isset($_GET['deleted']) && $_GET['deleted'] == 1) {
             $success = "Xóa danh mục thành công";
+        } else if (isset($_GET['updated']) && $_GET['updated'] == 1) {
+            $success = "Cập nhật danh mục thành công";
+        } else if (isset($_GET['added']) && $_GET['added'] == 1) {
+            $success = "Thêm danh mục thành công";
         }
         
         // Lấy danh sách danh mục
